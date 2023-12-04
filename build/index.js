@@ -128,7 +128,7 @@ import {
 } from "@remix-run/react";
 
 // app/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-UCELAUND.css";
+var tailwind_default = "/build/_assets/tailwind-RGHM24WZ.css";
 
 // app/root.tsx
 import { jsxDEV as jsxDEV2 } from "react/jsx-dev-runtime";
@@ -213,7 +213,7 @@ var RoundedLinkButton = ({ to, children }) => /* @__PURE__ */ jsxDEV3(
   Link,
   {
     to,
-    className: " text-black font-bold rounded-xl bg-purple-100 py-4 px-12 shadow-lg hover:shadow-lg focus:outline-none focus:ring focus:border-purple-300",
+    className: " text-black font-semibold rounded-xl bg-purple-100 py-5 px-20 shadow-lg hover:shadow-lg focus:outline-none focus:ring focus:border-purple-300",
     children
   },
   void 0,
@@ -233,9 +233,9 @@ var meta = () => [
   { name: "description", content: "Welcome to Remix!" }
 ];
 function Index() {
-  return /* @__PURE__ */ jsxDEV4("div", { className: "bg-gradient-to-b from-indigo-700 to-indigo-200 p-8 text-white flex flex-col content-center text-center", style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }, children: [
+  return /* @__PURE__ */ jsxDEV4("div", { className: "bg-gradient-to-b from-indigo-700 to-purple-400 p-8 text-white flex flex-col justify-center items-center text-center gap-20 h-screen", style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }, children: [
     /* @__PURE__ */ jsxDEV4("div", { children: [
-      /* @__PURE__ */ jsxDEV4("h1", { children: "Trusted Global Currency Converter & Money Transfer Solution" }, void 0, !1, {
+      /* @__PURE__ */ jsxDEV4("h1", { className: "font-semibold text-4xl", children: "Trusted Global Currency Converter & Money Transfer Solution" }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
         lineNumber: 16,
         columnNumber: 9
@@ -267,7 +267,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-S5QDLLT5.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-UB4TDWSR.js", "/build/_shared/chunk-4FPL6IGH.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-24DQK37A.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-VIHRFX6M.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-DH7HK3NN.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/currency-converter": { id: "routes/currency-converter", parentId: "root", path: "currency-converter", index: void 0, caseSensitive: void 0, module: "/build/routes/currency-converter-P7PWQ22P.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 } }, version: "3d9e7997", hmr: { runtime: "/build/_shared/chunk-24DQK37A.js", timestamp: 1701687539358 }, url: "/build/manifest-3D9E7997.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-S5QDLLT5.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-UB4TDWSR.js", "/build/_shared/chunk-4FPL6IGH.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-24DQK37A.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-5F5UGRSO.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-YWEDBRL3.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/currency-converter": { id: "routes/currency-converter", parentId: "root", path: "currency-converter", index: void 0, caseSensitive: void 0, module: "/build/routes/currency-converter-P7PWQ22P.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 } }, version: "601ad8cf", hmr: { runtime: "/build/_shared/chunk-24DQK37A.js", timestamp: 1701687902383 }, url: "/build/manifest-601AD8CF.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

@@ -322,6 +322,9 @@ video {
 .flex {
   display: flex;
 }
+.h-screen {
+  height: 100vh;
+}
 .w-10 {
   width: 2.5rem;
 }
@@ -343,11 +346,26 @@ video {
 .content-center {
   align-content: center;
 }
+.items-center {
+  align-items: center;
+}
 .justify-center {
   justify-content: center;
 }
 .justify-items-center {
   justify-items: center;
+}
+.gap-8 {
+  gap: 2rem;
+}
+.gap-12 {
+  gap: 3rem;
+}
+.gap-14 {
+  gap: 3.5rem;
+}
+.gap-20 {
+  gap: 5rem;
 }
 .rounded-xl {
   border-radius: .75rem;
@@ -387,6 +405,12 @@ video {
 .to-indigo-200 {
   --tw-gradient-to: #c7d2fe var(--tw-gradient-to-position);
 }
+.to-purple-400 {
+  --tw-gradient-to: #c084fc var(--tw-gradient-to-position);
+}
+.to-purple-300 {
+  --tw-gradient-to: #d8b4fe var(--tw-gradient-to-position);
+}
 .p-8 {
   padding: 2rem;
 }
@@ -409,11 +433,42 @@ video {
   padding-left: 3rem;
   padding-right: 3rem;
 }
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
 .text-center {
   text-align: center;
 }
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
 .font-bold {
   font-weight: 700;
+}
+.font-semibold {
+  font-weight: 600;
 }
 .text-white {
   --tw-text-opacity: 1;
@@ -456,4 +511,4 @@ video {
     var(--tw-ring-shadow),
     var(--tw-shadow, 0 0 #0000);
 }
-/*# sourceMappingURL=/build/_assets/tailwind-PP3GSBIZ.css.map */
+/*# sourceMappingURL=/build/_assets/tailwind-KMCOGWTV.css.map */

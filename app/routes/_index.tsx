@@ -11,9 +11,9 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="bg-gradient-to-b from-indigo-700 to-indigo-200 p-8 text-white flex flex-col content-center text-center" style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+    <div className="bg-gradient-to-b from-indigo-700 to-purple-400 p-8 text-white flex flex-col justify-center items-center text-center gap-20 h-screen" style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <div>
-        <h1>Trusted Global Currency Converter & Money Transfer Solution</h1>
+        <h1 className="font-semibold text-4xl">Trusted Global Currency Converter & Money Transfer Solution</h1>
         <p>Best sources for currency conversion, sending money onloine and tracking exchange rates</p>
       </div>
       <div className="">

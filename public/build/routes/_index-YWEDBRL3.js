@@ -35,13 +35,13 @@ if (import.meta) {
     //@ts-expect-error
     "app/components/button.tsx"
   );
-  import.meta.hot.lastModified = "1701687538939.9827";
+  import.meta.hot.lastModified = "1701687875755.4673";
 }
 var RoundedLinkButton = ({
   to,
   children
 }) => {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Link, { to, className: " text-black font-bold rounded-xl bg-purple-100 py-4 px-12 shadow-lg hover:shadow-lg focus:outline-none focus:ring focus:border-purple-300", children }, void 0, false, {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Link, { to, className: " text-black font-semibold rounded-xl bg-purple-100 py-5 px-20 shadow-lg hover:shadow-lg focus:outline-none focus:ring focus:border-purple-300", children }, void 0, false, {
     fileName: "app/components/button.tsx",
     lineNumber: 26,
     columnNumber: 10
@@ -73,7 +73,7 @@ if (import.meta) {
     //@ts-expect-error
     "app/routes/_index.tsx"
   );
-  import.meta.hot.lastModified = "1701687482675.2117";
+  import.meta.hot.lastModified = "1701687901946.6274";
 }
 var meta = () => {
   return [{
@@ -84,12 +84,12 @@ var meta = () => {
   }];
 };
 function Index() {
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("div", { className: "bg-gradient-to-b from-indigo-700 to-indigo-200 p-8 text-white flex flex-col content-center text-center", style: {
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("div", { className: "bg-gradient-to-b from-indigo-700 to-purple-400 p-8 text-white flex flex-col justify-center items-center text-center gap-20 h-screen", style: {
     fontFamily: "system-ui, sans-serif",
     lineHeight: "1.8"
   }, children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("h1", { children: "Trusted Global Currency Converter & Money Transfer Solution" }, void 0, false, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime2.jsxDEV)("h1", { className: "font-semibold text-4xl", children: "Trusted Global Currency Converter & Money Transfer Solution" }, void 0, false, {
         fileName: "app/routes/_index.tsx",
         lineNumber: 36,
         columnNumber: 9
@@ -128,4 +128,4 @@ export {
   Index as default,
   meta
 };
-//# sourceMappingURL=/build/routes/_index-DH7HK3NN.js.map
+//# sourceMappingURL=/build/routes/_index-YWEDBRL3.js.map
