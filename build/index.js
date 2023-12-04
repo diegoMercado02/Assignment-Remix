@@ -128,7 +128,7 @@ import {
 } from "@remix-run/react";
 
 // app/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-RGHM24WZ.css";
+var tailwind_default = "/build/_assets/tailwind-4QMH4RL3.css";
 
 // app/root.tsx
 import { jsxDEV as jsxDEV2 } from "react/jsx-dev-runtime";
@@ -198,22 +198,59 @@ function App() {
 
 // app/routes/currency-converter.tsx
 var currency_converter_exports = {};
-
-// app/routes/_index.tsx
-var index_exports = {};
-__export(index_exports, {
-  default: () => Index,
-  meta: () => meta
+__export(currency_converter_exports, {
+  default: () => currency_converter_default
 });
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+// app/components/CurrencyDropdown.tsx
+import { jsxDEV as jsxDEV3 } from "react/jsx-dev-runtime";
+function CurrencyDropdown({ currencies, selectedCurrency, onSelectCurrency }) {
+  return /* @__PURE__ */ jsxDEV3("div", { className: "flex flex-col mb-4", children: [
+    /* @__PURE__ */ jsxDEV3("label", { htmlFor: "currency", className: "mb-2", children: "Select Currency:" }, void 0, !1, {
+      fileName: "app/components/CurrencyDropdown.tsx",
+      lineNumber: 8,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV3(
+      "select",
+      {
+        id: "currency",
+        value: selectedCurrency,
+        onChange: (e) => onSelectCurrency(e.target.value),
+        className: "p-2 border border-gray-300 rounded-md",
+        children: currencies.map((currency) => /* @__PURE__ */ jsxDEV3("option", { value: currency, children: currency }, currency, !1, {
+          fileName: "app/components/CurrencyDropdown.tsx",
+          lineNumber: 18,
+          columnNumber: 11
+        }, this))
+      },
+      void 0,
+      !1,
+      {
+        fileName: "app/components/CurrencyDropdown.tsx",
+        lineNumber: 11,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, !0, {
+    fileName: "app/components/CurrencyDropdown.tsx",
+    lineNumber: 7,
+    columnNumber: 5
+  }, this);
+}
+var CurrencyDropdown_default = CurrencyDropdown;
 
 // app/components/button.tsx
 import { Link } from "react-router-dom";
-import { jsxDEV as jsxDEV3 } from "react/jsx-dev-runtime";
-var RoundedLinkButton = ({ to, children }) => /* @__PURE__ */ jsxDEV3(
+import { jsxDEV as jsxDEV4 } from "react/jsx-dev-runtime";
+var RoundedLinkButton = ({ to, children }) => /* @__PURE__ */ jsxDEV4(
   Link,
   {
     to,
-    className: " text-black font-semibold rounded-xl bg-purple-100 py-5 px-20 shadow-lg hover:shadow-lg focus:outline-none focus:ring focus:border-purple-300",
+    className: " text-black font-semibold rounded-xl bg-purple-100 py-5 px-4 shadow-lg hover:shadow-lg focus:outline-none focus:ring focus:border-purple-300",
     children
   },
   void 0,
@@ -226,21 +263,135 @@ var RoundedLinkButton = ({ to, children }) => /* @__PURE__ */ jsxDEV3(
   this
 ), button_default = RoundedLinkButton;
 
+// app/routes/currency-converter.tsx
+import { jsxDEV as jsxDEV5 } from "react/jsx-dev-runtime";
+var apiUrl = "https://currency-exchange.p.rapidapi.com";
+function CurrencyConverter() {
+  let [currencies, setCurrencies] = useState([]), [fromCurrency, setFromCurrency] = useState("USD"), [toCurrency, setToCurrency] = useState("EUR"), [amount, setAmount] = useState(1), [exchangeRate, setExchangeRate] = useState(null), params = useParams();
+  useEffect(() => {
+    fetch(`${apiUrl}/listquotes`, {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Host": "currency-exchange.p.rapidapi.com",
+        "X-RapidAPI-Key": "51718725bdmshd55cc7a4537be62p19d336jsnf99a16b27253"
+      }
+    }).then((response) => response.json()).then((data) => {
+      setCurrencies(data);
+    });
+  }, []), useEffect(() => {
+    fetch(`${apiUrl}/exchange?from=${fromCurrency}&to=${toCurrency}&q=${amount}`, {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Host": "currency-exchange.p.rapidapi.com",
+        "X-RapidAPI-Key": "51718725bdmshd55cc7a4537be62p19d336jsnf99a16b27253"
+      }
+    }).then((response) => response.json()).then((data) => {
+      setExchangeRate(data);
+    });
+  }, [fromCurrency, toCurrency, amount]);
+  let handleConvert = () => {
+    exchangeRate !== null && console.log(`Converted amount: ${amount * exchangeRate}`);
+  }, converterLink = `/currency-converter/from=${fromCurrency}&to=${toCurrency}&q=${amount}`;
+  return /* @__PURE__ */ jsxDEV5("div", { children: [
+    /* @__PURE__ */ jsxDEV5("h1", { children: "Currency Converter" }, void 0, !1, {
+      fileName: "app/routes/currency-converter.tsx",
+      lineNumber: 59,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV5(
+      CurrencyDropdown_default,
+      {
+        currencies,
+        selectedCurrency: fromCurrency,
+        onSelectCurrency: setFromCurrency
+      },
+      void 0,
+      !1,
+      {
+        fileName: "app/routes/currency-converter.tsx",
+        lineNumber: 60,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV5(
+      CurrencyDropdown_default,
+      {
+        currencies,
+        selectedCurrency: toCurrency,
+        onSelectCurrency: setToCurrency
+      },
+      void 0,
+      !1,
+      {
+        fileName: "app/routes/currency-converter.tsx",
+        lineNumber: 65,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV5("div", { className: "flex flex-col mb-4", children: [
+      /* @__PURE__ */ jsxDEV5("label", { htmlFor: "amount", className: "mb-2", children: "Enter Amount:" }, void 0, !1, {
+        fileName: "app/routes/currency-converter.tsx",
+        lineNumber: 71,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV5(
+        "input",
+        {
+          id: "amount",
+          type: "number",
+          value: amount,
+          onChange: (e) => setAmount(parseFloat(e.target.value)),
+          className: "p-2 border border-gray-300 rounded-md"
+        },
+        void 0,
+        !1,
+        {
+          fileName: "app/routes/currency-converter.tsx",
+          lineNumber: 74,
+          columnNumber: 9
+        },
+        this
+      )
+    ] }, void 0, !0, {
+      fileName: "app/routes/currency-converter.tsx",
+      lineNumber: 70,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV5(button_default, { to: "`/currency-converter/from=${fromCurrency}&to=${params.toCurrency}&q=${params.amount}`", children: "Convert" }, void 0, !1, {
+      fileName: "app/routes/currency-converter.tsx",
+      lineNumber: 83,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/routes/currency-converter.tsx",
+    lineNumber: 58,
+    columnNumber: 5
+  }, this);
+}
+var currency_converter_default = CurrencyConverter;
+
 // app/routes/_index.tsx
-import { jsxDEV as jsxDEV4 } from "react/jsx-dev-runtime";
+var index_exports = {};
+__export(index_exports, {
+  default: () => Index,
+  meta: () => meta
+});
+import { jsxDEV as jsxDEV6 } from "react/jsx-dev-runtime";
 var meta = () => [
   { title: "New Remix App" },
   { name: "description", content: "Welcome to Remix!" }
 ];
 function Index() {
-  return /* @__PURE__ */ jsxDEV4("div", { className: "bg-gradient-to-b from-indigo-700 to-purple-400 p-8 text-white flex flex-col justify-center items-center text-center gap-20 h-screen", style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }, children: [
-    /* @__PURE__ */ jsxDEV4("div", { children: [
-      /* @__PURE__ */ jsxDEV4("h1", { className: "font-semibold text-4xl", children: "Trusted Global Currency Converter & Money Transfer Solution" }, void 0, !1, {
+  return /* @__PURE__ */ jsxDEV6("div", { className: "bg-gradient-to-b from-indigo-700 to-purple-400 p-8 text-white flex flex-col justify-center items-center text-center gap-20 h-screen", style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }, children: [
+    /* @__PURE__ */ jsxDEV6("div", { children: [
+      /* @__PURE__ */ jsxDEV6("h1", { className: "font-semibold text-4xl", children: "Trusted Global Currency Converter & Money Transfer Solution" }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
         lineNumber: 16,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ jsxDEV4("p", { children: "Best sources for currency conversion, sending money onloine and tracking exchange rates" }, void 0, !1, {
+      /* @__PURE__ */ jsxDEV6("p", { children: "Best sources for currency conversion, sending money onloine and tracking exchange rates" }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
         lineNumber: 17,
         columnNumber: 9
@@ -250,7 +401,7 @@ function Index() {
       lineNumber: 15,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ jsxDEV4("div", { className: "", children: /* @__PURE__ */ jsxDEV4(button_default, { to: "/currency-converter", children: "Convert" }, void 0, !1, {
+    /* @__PURE__ */ jsxDEV6("div", { className: "", children: /* @__PURE__ */ jsxDEV6(button_default, { to: "/currency-converter", children: "Convert" }, void 0, !1, {
       fileName: "app/routes/_index.tsx",
       lineNumber: 20,
       columnNumber: 9
@@ -266,8 +417,40 @@ function Index() {
   }, this);
 }
 
+// app/routes/_param.tsx
+var param_exports = {};
+__export(param_exports, {
+  default: () => param_default
+});
+import { useParams as useParams2 } from "react-router-dom";
+import { jsxDEV as jsxDEV7 } from "react/jsx-dev-runtime";
+var ConversionResult = () => {
+  let { symbol, quantity } = useParams2();
+  return /* @__PURE__ */ jsxDEV7("div", { children: [
+    /* @__PURE__ */ jsxDEV7("h2", { children: "Conversion Result" }, void 0, !1, {
+      fileName: "app/routes/_param.tsx",
+      lineNumber: 9,
+      columnNumber: 13
+    }, this),
+    /* @__PURE__ */ jsxDEV7("p", { children: [
+      "Symbol: ",
+      symbol ?? "N/A",
+      ", Quantity: ",
+      parseFloat(quantity ?? "0").toFixed(6)
+    ] }, void 0, !0, {
+      fileName: "app/routes/_param.tsx",
+      lineNumber: 10,
+      columnNumber: 13
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/routes/_param.tsx",
+    lineNumber: 8,
+    columnNumber: 9
+  }, this);
+}, param_default = ConversionResult;
+
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-S5QDLLT5.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-UB4TDWSR.js", "/build/_shared/chunk-4FPL6IGH.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-24DQK37A.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-5F5UGRSO.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-YWEDBRL3.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/currency-converter": { id: "routes/currency-converter", parentId: "root", path: "currency-converter", index: void 0, caseSensitive: void 0, module: "/build/routes/currency-converter-P7PWQ22P.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 } }, version: "601ad8cf", hmr: { runtime: "/build/_shared/chunk-24DQK37A.js", timestamp: 1701687902383 }, url: "/build/manifest-601AD8CF.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-6AOHO37S.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-UP5HT5HP.js", "/build/_shared/chunk-4FPL6IGH.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-24DQK37A.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-ZXY4Y73X.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-UJELI3XZ.js", imports: ["/build/_shared/chunk-KYXWULVX.js"], hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_param": { id: "routes/_param", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_param-4L2PDMZ6.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/currency-converter": { id: "routes/currency-converter", parentId: "root", path: "currency-converter", index: void 0, caseSensitive: void 0, module: "/build/routes/currency-converter-J63WNGER.js", imports: ["/build/_shared/chunk-KYXWULVX.js"], hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 } }, version: "17c67c15", hmr: { runtime: "/build/_shared/chunk-24DQK37A.js", timestamp: 1701690909401 }, url: "/build/manifest-17C67C15.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
@@ -294,6 +477,14 @@ var mode = "development", assetsBuildDirectory = "public/build", future = { v3_f
     index: !0,
     caseSensitive: void 0,
     module: index_exports
+  },
+  "routes/_param": {
+    id: "routes/_param",
+    parentId: "root",
+    path: void 0,
+    index: void 0,
+    caseSensitive: void 0,
+    module: param_exports
   }
 };
 export {
