@@ -1,18 +1,26 @@
-// CurrencyDropdown.js
-
 import React from 'react';
 
-function CurrencyDropdown({ currencies, selectedCurrency, onSelectCurrency }: { currencies: string[], selectedCurrency: string, onSelectCurrency: (currency: string) => void }) {
+function CurrencyDropdown({
+  currencies,
+  selectedCurrency,
+  onSelectCurrency,
+  labelText // Add this new prop
+}: {
+  currencies: string[],
+  selectedCurrency: string,
+  onSelectCurrency: (currency: string) => void,
+  labelText: string // Declare the new prop here
+}) {
   return (
-    <div className="flex flex-col mb-4 ">
+    <div className="flex flex-col w-full text-left">
       <label htmlFor="currency" className="mb-2">
-        Select Currency:
+        {labelText} {/* Use the labelText prop here */}
       </label>
       <select
         id="currency"
         value={selectedCurrency}
         onChange={(e) => onSelectCurrency(e.target.value)}
-        className="text-black p-2 border border-gray-300 rounded-md"
+        className="text-black font-semibold rounded-xl bg-purple-100 py-3 px-4 shadow-lg hover:shadow-lg focus:outline-none focus:ring focus:border-purple-300"
       >
         {currencies.map((currency) => (
           <option key={currency} value={currency}>

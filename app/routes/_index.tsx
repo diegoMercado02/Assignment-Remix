@@ -19,9 +19,6 @@ export default function Index() {
       <div className="">
         <RoundedLinkButton to="/currency-converter">Convert</RoundedLinkButton>
       </div>
-      
-
-    
     </div>
   );
 }
